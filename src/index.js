@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+//import './index.css';
+//import App from './App';
 import reportWebVitals from './reportWebVitals';
+import DiscoverStocks from './Components/DiscoverStocks';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <DiscoverStocks />
   </React.StrictMode>,
   document.getElementById('root')
 );
