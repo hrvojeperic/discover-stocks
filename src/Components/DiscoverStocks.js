@@ -1,58 +1,102 @@
 import React, { Component } from 'react';
-import IEX_API from '../iex_api/iex_api';
+import stock from '../resources/stock';
+
+/*
+
+    Discover Stock
+    Logo Ticker
+    Name
+    stock price
+    more information
+    
+
+*/
 
 class DiscoverStocks extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            data: {},
             companyName: '',
-            ticker: ''
+            ticker: '',
+            logo: '',
+            exchange: '',
+            website: '',
+            tags: [],
+            stockPrice: '',
+            priceDate: ''
         }
     }
 
-    _randomSymbolName = async () => {
-        const url = `${IEX_API.baseUrl}/ref-data/symbols?token=${IEX_API.apiToken}`
-        // https://cloud.iexapis.com/stable/ref-data/symbols?token=pk_d2db7964a6dc4ce5b0f6391985be9005
-        const data = fetch(url).then((response) => response.json());
-        let symbol = '';
-        let name = '';
-        data.then((result) => {
-            let randNum = Math.floor(Math.random() * result.length);
-            symbol = '' + result[randNum].symbol;
-            name = '' + result[randNum].name;
-            this.setState({companyName: name}); 
-            this.setState({ticker: symbol}); 
+    updateStockData = () => {
+        
+    }
+
+    _generateRandomStock = (symbol) => {
+        this.setState({
+            ticker: symbol
         });
-       
+        this.generateLogo();
+        this.generateCompanyInfo();
+        this.generateStockPrice();
     }
 
-    generateRandomStock = async () => {
-        // const url = `${IEX_API.baseUrl}/ref-data/symbols?token=${IEX_API.apiToken}`
-        // // https://cloud.iexapis.com/stable/ref-data/symbols?token=pk_d2db7964a6dc4ce5b0f6391985be9005
-        // const data = fetch(url).then((response) => response.json());
-        // let symbol = '';
-        // let name = '';
-        // data.then(function(result) {
-        //     let randNum = Math.floor(Math.random() * result.length);
-        //     symbol = '' + result[randNum].symbol;
-        //     name = '' + result[randNum].name;
-        // });
-        await this._randomSymbolName();
-        // this.setState({companyName: 'name'});
-        // this.setState({ticker: symbol});    
+    generateRandomStock = () => {
+        stock.getSymbol(this._generateRandomStock);
     }
 
+    _generateLogo = (logoUrl) => {
+        this.setState({
+            logo: logoUrl
+        });
+    }
+
+    generateLogo = () => {
+        stock.getLogo(this.state.ticker, this._generateLogo);
+    }
+
+    _generateCompanyInfo = (name, exchange, website, tags) => {
+        this.setState({
+            companyName: name,
+            exchange: exchange,
+            website: website,
+            tags: tags
+        });
+    }
+
+    generateCompanyInfo = () => {
+        stock.getCompanyInfo(this.state.ticker, this._generateCompanyInfo);
+    }
+
+    _generateStockPrice = (price, date) => {
+        this.setState({
+            stockPrice: price,
+            priceDate: date
+        });
+    }
+
+    generateStockPrice = () => {
+        stock.getPrice(this.state.ticker, this._generateStockPrice);
+    }
 
     render() {
         return (
             <div>
                 <button onClick={() => this.generateRandomStock()}>Discover Stock</button>
+                <img src={this.state.logo} width="200" height="200"></img>
                 <h1>Company Name: </h1>
-                <h2>{this.state.companyName}</h2>
+                <h3>{this.state.companyName}</h3>
                 <h1>Ticker: </h1>
-                <h2>{this.state.ticker}</h2>
+                <h3>{this.state.ticker}</h3>
+                <h1>Exchange: </h1>
+                <h3>{this.state.exchange}</h3>
+                <h1>Price and Date </h1>
+                <h3>{this.state.stockPrice}     {this.state.priceDate}</h3>
+                <h1>Website: </h1>
+                <a href={this.state.website}>{this.state.website}</a>
+                <h1>Tags: </h1>
+                <h3>{this.state.tags}</h3>
+
             </div>
         )
     }
