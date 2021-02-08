@@ -11,6 +11,11 @@
     border-radius: 15px 50px;
 }
 
+.stockBox:hover {
+    color: orange;
+    background: red;
+}
+
 .line {
     display: block;
     height: 1px;
@@ -24,17 +29,17 @@
     background-color: #3b3f47;
     border: none;
     color: white;
-    padding: 5px;
+    padding: 20px 30px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 25px 2px;
+    margin: 15px 10px;
     border-radius: 8px;
 }
 
 .binanceLink {
-    color: black;
+    color: #24A0ED;
     text-decoration: none;
 }
 
@@ -44,11 +49,12 @@
 }
 
 .githubLink { /* github link */
-    top: 0px;
-    right: 0px;
-    padding: 11px 15px;
+    padding: 15px 15px;
     color: white;
     text-decoration: none;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
 }
 
 .githubLink:hover { /* hover github link */
@@ -65,4 +71,5 @@ h2 {
     font-weight: bold;
     font-size: 30px;
     font-family: 'Roboto', sans-serif;
+    color: #2C5F2D;
 }

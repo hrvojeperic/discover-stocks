@@ -52,11 +52,12 @@ class DiscoverStocks extends Component {
     render() {
         return (
             <div>
+                
                 <div><a className="githubLink" target="_blank" rel="noopener noreferrer" href={'https://github.com/hrvojeperic'}>github.com/hrvojeperic</a></div>
                 <div className="stockBox">
                     
                     <div>
-                        <h1>Cryto Ticker</h1>
+                        <h1>Crypto Ticker</h1>
                     </div>  
                     
 
