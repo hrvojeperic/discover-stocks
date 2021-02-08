@@ -1,5 +1,100 @@
-
 .stockBox {
+    background: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 325px;
+    height: 325px;
+    border-radius: 15px 50px;
+}
+
+.line {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/* height: 125px; */
+.middleBox {
+    border-top: 1px solid green;
+    cursor: pointer;
+    height: 164px;
+    margin: 0px 0px;
+    padding: 0px 0px;
+    border-radius: 0px 0px 0px 0px;
+}
+
+.middleBox:hover {
+    background: lightgreen;
+}
+
+/* height: 119px; */
+.bottomBox {
+    border-top: 1px solid red;
+    background: lightgrey;
+    cursor: pointer;
+    height: 80px;
+    margin: 0px 0px;
+    padding: 0px 0px;
+    border-radius: 0px 0px 15px 50px;
+}
+
+.bottomBox:hover {
+    background: #ffcccb;
+}
+
+.title {
+    user-select: none;
+    font-family: "Arial";
+    font-weight: normal;
+}
+
+.tickerName {
+    user-select: none;
+    position: center;
+    padding: 41px 0px;
+    font-weight: bold;
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+    color: #2C5F2D;
+}
+
+.buttonName {
+    user-select: none;
+    font-family: "Arial";
+    font-weight: normal;
+    border: none;
+    color: black;
+    padding: 22px 0px;
+    text-align: center;
+    display: inline-block;
+    font-size: 30px;
+    margin: 0px 0px;
+}
+
+.githubLink {
+    user-select: none;
+    padding: 15px 15px;
+    color: white;
+    text-decoration: none;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+}
+
+.githubLink:hover { 
+    color: gray;
+    text-decoration: underline;
+}
+
+
+
+/*.stockBox {
     background: white;
     position: absolute;
     top: 50%;
@@ -43,12 +138,12 @@
     text-decoration: none;
 }
 
-.binanceLink:hover { /* hover github link */
+.binanceLink:hover { 
     color: #3b3f47;
     text-decoration: underline;
 }
 
-.githubLink { /* github link */
+.githubLink {
     padding: 15px 15px;
     color: white;
     text-decoration: none;
@@ -57,7 +152,7 @@
     right: 0px;
 }
 
-.githubLink:hover { /* hover github link */
+.githubLink:hover { 
     color: gray;
     text-decoration: underline;
 }
@@ -72,4 +167,4 @@ h2 {
     font-size: 30px;
     font-family: 'Roboto', sans-serif;
     color: #2C5F2D;
-}
+}*/
