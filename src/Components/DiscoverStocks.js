@@ -52,7 +52,7 @@ class DiscoverStocks extends Component {
     render() {
         return (
             <div>
-                <div><a target="_blank" rel="noopener noreferrer" className="githubLink" href={'https://github.com/hrvojeperic'}>github.com/hrvojeperic</a></div>
+                <div><a className="githubLink" target="_blank" rel="noopener noreferrer" href={'https://github.com/hrvojeperic'}>github.com/hrvojeperic</a></div>
                 <div className="stockBox">
                     
                     <div>
@@ -63,9 +63,9 @@ class DiscoverStocks extends Component {
                     <div className="line"></div>
 
                     <div>
-                        <h3>{this.state.ticker}</h3>
+                        <h2>{this.state.ticker}</h2>
                         <div>
-                            <a target="_blank" rel="noopener noreferrer" href={this.state.binanceUrl}>Binance</a>
+                            <a  className="binanceLink" target="_blank" rel="noopener noreferrer" href={this.state.binanceUrl}>Binance</a>
                         </div>
                     </div>
 
