@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import stock from '../resources/stock';
-
+import '../styles/stockStyles.css';
 /*
 
-    Discover Stock
-    Logo Ticker
-    Name
-    stock price
-    more information
+    Ticker
+    LINK
     
 
 */
@@ -17,27 +14,24 @@ class DiscoverStocks extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            companyName: '',
             ticker: '',
-            logo: '',
-            exchange: '',
-            website: '',
-            tags: [],
             stockPrice: '',
-            priceDate: ''
+            binanceUrl: ''
         }
     }
 
-    updateStockData = () => {
-        
+    componentDidMount() {
+        document.body.style = 'background: #3b3f47;';
+        this.generateRandomStock();
     }
 
     _generateRandomStock = (symbol) => {
         this.setState({
             ticker: symbol
         });
-        this.generateLogo();
-        this.generateCompanyInfo();
+        this.setState({binanceUrl: 'https://www.binance.com/en/trade/' + this.state.ticker});
+        //this.generateLogo();
+        //this.generateCompanyInfo();
         this.generateStockPrice();
     }
 
@@ -45,33 +39,9 @@ class DiscoverStocks extends Component {
         stock.getSymbol(this._generateRandomStock);
     }
 
-    _generateLogo = (logoUrl) => {
+    _generateStockPrice = (price) => {
         this.setState({
-            logo: logoUrl
-        });
-    }
-
-    generateLogo = () => {
-        stock.getLogo(this.state.ticker, this._generateLogo);
-    }
-
-    _generateCompanyInfo = (name, exchange, website, tags) => {
-        this.setState({
-            companyName: name,
-            exchange: exchange,
-            website: website,
-            tags: tags
-        });
-    }
-
-    generateCompanyInfo = () => {
-        stock.getCompanyInfo(this.state.ticker, this._generateCompanyInfo);
-    }
-
-    _generateStockPrice = (price, date) => {
-        this.setState({
-            stockPrice: price,
-            priceDate: date
+            stockPrice: price
         });
     }
 
@@ -82,21 +52,30 @@ class DiscoverStocks extends Component {
     render() {
         return (
             <div>
-                <button onClick={() => this.generateRandomStock()}>Discover Stock</button>
-                <img src={this.state.logo} width="200" height="200"></img>
-                <h1>Company Name: </h1>
-                <h3>{this.state.companyName}</h3>
-                <h1>Ticker: </h1>
-                <h3>{this.state.ticker}</h3>
-                <h1>Exchange: </h1>
-                <h3>{this.state.exchange}</h3>
-                <h1>Price and Date </h1>
-                <h3>{this.state.stockPrice}     {this.state.priceDate}</h3>
-                <h1>Website: </h1>
-                <a href={this.state.website}>{this.state.website}</a>
-                <h1>Tags: </h1>
-                <h3>{this.state.tags}</h3>
+                <div><a target="_blank" rel="noopener noreferrer" className="githubLink" href={'https://github.com/hrvojeperic'}>github.com/hrvojeperic</a></div>
+                <div className="stockBox">
+                    
+                    <div>
+                        <h1>Cryto Ticker</h1>
+                    </div>  
+                    
 
+                    <div className="line"></div>
+
+                    <div>
+                        <h3>{this.state.ticker}</h3>
+                        <div>
+                            <a target="_blank" rel="noopener noreferrer" href={this.state.binanceUrl}>Binance</a>
+                        </div>
+                    </div>
+
+                    <div className="line"></div>
+
+                    <div>
+                        <button className="stockButton" onClick={() => this.generateRandomStock()}>Discover Stock</button>
+                    </div>
+
+                </div>
             </div>
         )
     }

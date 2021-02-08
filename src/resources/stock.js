@@ -3,7 +3,8 @@ import IEX_API from '../resources/iex_api';
 const stock = {
     
     getSymbol: (callback) => {
-        const url = `${IEX_API.baseUrl}/ref-data/symbols?token=${IEX_API.apiToken}`;
+        // const url = `${IEX_API.baseUrl}/ref-data/symbols?token=${IEX_API.apiToken}`;
+        const url = `${IEX_API.baseUrl}/ref-data/crypto/symbols?token=${IEX_API.apiToken}`;
         // const url = `${IEX_API.baseUrl}/ref-data/region/us/symbols?token=${IEX_API.apiToken}`;
         fetch(url)
         .then((response) => response.json())
@@ -13,7 +14,18 @@ const stock = {
         });
     },
 
-    getLogo: (symbol, callback) => {
+    getPrice: (symbol, callback) => {
+        const url = `${IEX_API.baseUrl}/crypto/${symbol}/price&token=${IEX_API.apiToken}`;
+        console.log(url)
+        fetch(url)
+        .then((response) => response.json())
+        .then((result) => {
+            console.log(result);
+            //callback(result[result.length - 1].close, result[result.length - 1].date);
+        })
+    }
+
+    /*getLogo: (symbol, callback) => {
         const url = `${IEX_API.baseUrl}/stock/${symbol}/logo?token=${IEX_API.apiToken}`;
         fetch(url)
         .then((response) => response.json())
@@ -38,7 +50,7 @@ const stock = {
         .then((result) => {
             callback(result[result.length - 1].close, result[result.length - 1].date);
         })
-    }
+    }*/
 
 }
 
