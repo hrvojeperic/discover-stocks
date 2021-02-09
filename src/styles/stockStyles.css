@@ -50,7 +50,7 @@
 
 .title {
     user-select: none;
-    font-family: "Arial";
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: normal;
 }
 
@@ -66,10 +66,10 @@
 
 .buttonName {
     user-select: none;
-    font-family: "Arial";
-    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
     border: none;
-    color: black;
+    color: darkred;
     padding: 22px 0px;
     text-align: center;
     display: inline-block;
