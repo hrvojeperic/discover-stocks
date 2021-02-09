@@ -3,23 +3,31 @@ import IEX_API from '../resources/iex_api';
 const stock = {
     
     // fetch crypto symbol array from api
-    getSymbol: (callback) => {
+    getSymbol: (callback, errorCallback) => {
+
         const url = `${IEX_API.baseUrl}/ref-data/crypto/symbols?token=${IEX_API.apiToken}`;
+        let errorCode = 0;
+        // fetch api data
         fetch(url)
         .then((response) => {
             if (response.ok) { // check for errors
                 return response.json();
             }
             else {
-                throw new Error("Error with API request.");
+                errorCode = response.status;
+                throw new Error(response.status);
             }
         })
         .then((arr) => {
             callback(arr);
         })
-        .catch((error) => { // catch and print error message
+        .catch((error) => { // catch error and print
             console.log(error);
+            if (errorCode === 429) { // too many requests error code
+                errorCallback();
+            }
         });
+
     },
 
     /*

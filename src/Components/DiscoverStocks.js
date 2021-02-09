@@ -10,9 +10,9 @@ class DiscoverStocks extends Component {
         super(props);
         this.state = {
             ticker: '',
-            stockPrice: '',
             binanceUrl: '',
             tickerArray: []
+            //stockPrice: ''
         }
     }
 
@@ -22,12 +22,18 @@ class DiscoverStocks extends Component {
         document.title = "Discover Stocks";
         document.body.style = 'background: #3b3f47;';
         // generate stock from api
-        this.generateRandomStock(); 
+        this.generateRandomStock();
     }
 
     // returns random integer bounded by upper limit
     randomInteger = (upperLimit) => {
         return Math.floor(Math.random() * upperLimit);
+    }
+
+    // generate random stock after 429 error code
+    errorCallback = () => {
+        // generate stock from api
+        this.generateRandomStock();
     }
 
     _generateRandomStock = (symbolArr) => {
@@ -43,7 +49,7 @@ class DiscoverStocks extends Component {
 
     // requests data from api to generate new stock
     generateRandomStock = () => {
-        stock.getSymbol(this._generateRandomStock);
+        stock.getSymbol(this._generateRandomStock, this.errorCallback);
     }
 
     // generate new stock after first api request
