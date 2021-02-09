@@ -1,13 +1,6 @@
 import React, { Component } from 'react';
 import stock from '../resources/stock';
 import '../styles/stockStyles.css';
-/*
-
-    Ticker
-    LINK
-    
-
-*/
 
 class DiscoverStocks extends Component {
 
