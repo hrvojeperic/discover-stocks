@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/discover-stocks/static/css/main.6ddb9da2.chunk.css",
-    "main.js": "/discover-stocks/static/js/main.ee095014.chunk.js",
-    "main.js.map": "/discover-stocks/static/js/main.ee095014.chunk.js.map",
+    "main.js": "/discover-stocks/static/js/main.62ecb499.chunk.js",
+    "main.js.map": "/discover-stocks/static/js/main.62ecb499.chunk.js.map",
     "runtime-main.js": "/discover-stocks/static/js/runtime-main.2aceb849.js",
     "runtime-main.js.map": "/discover-stocks/static/js/runtime-main.2aceb849.js.map",
     "static/js/2.0f12a907.chunk.js": "/discover-stocks/static/js/2.0f12a907.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.2aceb849.js",
     "static/js/2.0f12a907.chunk.js",
     "static/css/main.6ddb9da2.chunk.css",
-    "static/js/main.ee095014.chunk.js"
+    "static/js/main.62ecb499.chunk.js"
   ]
 }
